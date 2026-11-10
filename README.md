@@ -46,7 +46,7 @@
 ## 🚀 Projects
 
 ### 🎧 HelpNest · AI 고객상담(CS) 헬프데스크
-`2026.09 – 2026.10` · 3인 팀 · 하이미디어아카데미 · [서비스](https://helpnest.kro.kr) · [docs](https://github.com/BaekSeongJun/helpnest-docs) · [back](https://github.com/BaekSeongJun/helpnest-back) · [front](https://github.com/BaekSeongJun/helpnest-front)
+`2026.09 – 2026.11` · 3인 팀 **팀장** · 하이미디어아카데미 · 🏆 프로젝트 우수상 · [서비스](https://helpnest.kro.kr) · [docs](https://github.com/BaekSeongJun/helpnest-docs) · [back](https://github.com/BaekSeongJun/helpnest-back) · [front](https://github.com/BaekSeongJun/helpnest-front)
 
 - **담당**: 인증/권한, 회원, 문의 접수, FAQ·답변 템플릿, 만족도 설문, 고객 이력, 공용 구조
 - Spring Security + JWT 인증 (Access 30분 / Refresh 14일 httpOnly 쿠키, 프론트 자동 재발급)
@@ -54,18 +54,21 @@
 - 저장소 3개의 브랜치 전략·CODEOWNERS·PR 규칙과 팀 공용 `CLAUDE.md`, `git-commit` skill 작성 → 팀원 모두가 Claude Code로 개발하는 환경에서 서로의 코드를 지키는 협업 구조 설계
 
 ### 📚 BooksCamp · MSA 기반 온라인 서점
-`2025.10 – 2025.12` · 8인 팀 · NHN Academy · [GitHub](https://github.com/nhnacademy-be11-bookscamp)
+`2025.10 – 2025.12` · 8인 팀 · NHN Academy · 🏆 최우수상(1등) · [GitHub](https://github.com/nhnacademy-be11-bookscamp)
 
 - **담당**: 회원 도메인과 인증·인가 전체
-- Auth 서버의 JWT Access/Refresh Token 발급, Refresh Token은 Redis에 저장
-- Spring Cloud Gateway에서 토큰 검증 및 자동 재발급, `@RequiredRole` 기반 인가
+- 프론트 서버가 Feign으로 Auth 서버에 인증을 위임하는 BFF 구조, 토큰은 HttpOnly 쿠키로 발급
+- Spring Cloud Gateway에서 JWT 검증 후 회원 ID·권한을 헤더로 전달, API는 `@RequiredRole` AOP로 인가
+- 401이면 Refresh Token으로 재발급 후 원래 요청 재전송, Refresh Token은 Redis에서 재발급마다 교체하고 값이 다르면 탈취로 보고 삭제
+- 배포 후 다중 서버에서 새로고침하면 로그인이 풀리던 문제를 Redis 세션 공유로 해결
 - Spring Security + Payco·Google OAuth2 로그인, 휴면 회원 전환 스케줄러
 
 ### 💊 우리동네약값 · 일반의약품 최저가 추천
-`2026.09` · 1인 · 하이미디어아카데미 · [GitHub](https://github.com/BaekSeongJun/miniproject1)
+`2026.09` · 3인 팀 팀장 (팀원별 저장소, 본인 저장소 1인 개발) · 하이미디어아카데미 · [GitHub](https://github.com/BaekSeongJun/miniproject1)
 
 - Python으로 공공데이터를 시드 데이터로 변환 (약국 23,571곳 · 약품 4,762종 · 가격 제보 약 376만 건)
-- Spring Boot 4.1 + Next.js 16 + PostgreSQL 17 (`pg_trgm` 검색), PRD·DB·API 문서 직접 작성
+- Spring Boot 4.1 + Next.js 16 + PostgreSQL 17, PRD·DB·API 문서 직접 작성
+- 검색이 GIN 인덱스를 못 타는 원인(OR 조건 · C 로케일에서 한글 trigram 미생성)을 `EXPLAIN ANALYZE`로 찾아 인덱스 보완 → 약국 검색 **124ms → 0.5ms** ([측정 기록](https://github.com/BaekSeongJun/miniproject1#검색-성능-개선-v6))
 
 <br>
 
@@ -73,7 +76,7 @@
 
 - 충남대학교 컴퓨터공학과 학사 (2026.02)
 - NHN Academy Java 백엔드 개발자 과정 수료 (2025.07 – 2026.01)
-- 하이미디어아카데미 「자바와 생성형AI를 활용한 차세대 CRM플랫폼개발」 (2026.05 – 2026.11 수료 예정)
+- 하이미디어아카데미 「자바와 생성형AI를 활용한 차세대 CRM플랫폼개발」 (2026.05 – 2026.11 수료)
 - SQLD (SQL 개발자) · OPIc IM2
 
 <br>
@@ -81,7 +84,7 @@
 ## 📫 Contact
 
 - **Email:** por9535@gmail.com
-- **LinkedIn:** [seongjun-baek](https://www.linkedin.com/in/seongjun-baek-a509692b9/)
+- **Portfolio:** [baekseongjun.github.io](https://baekseongjun.github.io)
 
 ---
 *맡은 시스템은 끝까지 책임지는 개발자가 되겠습니다.*
